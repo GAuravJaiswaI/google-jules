@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gauravjaiswal.dev/sitemap.xml
+
