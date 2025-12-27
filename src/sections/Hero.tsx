@@ -4,126 +4,65 @@ import { ArrowRight } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="h-[80vh] flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Mistral-style warm gradient background with mountain silhouettes */}
-      <div className="absolute inset-0 z-0">
-        {/* Warm gradient background - exact Mistral colors */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8E7] via-[#FFE5B4] to-[#FFB84D]" />
-        
-        {/* Mountain silhouettes effect - multiple layers */}
-        <div className="absolute inset-0">
-          <svg 
-            className="absolute bottom-0 w-full h-full" 
-            viewBox="0 0 1200 600" 
-            preserveAspectRatio="none"
-            style={{ height: '100%' }}
-          >
-            {/* Back layer - lighter */}
-            <path
-              d="M0,400 Q150,350 300,380 T600,360 T900,380 T1200,400 L1200,600 L0,600 Z"
-              fill="rgba(0,0,0,0.08)"
-            />
-            {/* Middle layer */}
-            <path
-              d="M0,450 Q200,400 400,420 T800,410 T1200,450 L1200,600 L0,600 Z"
-              fill="rgba(0,0,0,0.12)"
-            />
-            {/* Front layer - darker */}
-            <path
-              d="M0,500 Q100,450 200,470 T400,460 T600,475 T800,465 T1000,480 T1200,500 L1200,600 L0,600 Z"
-              fill="rgba(0,0,0,0.15)"
-            />
-            {/* Additional detail layer */}
-            <path
-              d="M0,550 Q80,520 160,535 T320,530 T480,540 T640,535 T800,545 T960,538 T1120,550 T1200,550 L1200,600 L0,600 Z"
-              fill="rgba(0,0,0,0.18)"
-            />
-          </svg>
-        </div>
-      </div>
+    <section className="relative min-h-[90vh] flex flex-col justify-center bg-mistral-cream pt-20">
       
-      <Container className="relative z-20">
+      {/* Content Top Section */}
+      <Container className="relative z-20 mb-16 text-center">
+        {/* Placeholder for "Pixel Cat" Image */}
+        <motion.div
+           initial={{ opacity: 0, scale: 0.9 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.8 }}
+           className="w-48 h-24 mx-auto mb-12 bg-neutral-900/10 border-2 border-dashed border-neutral-400 flex items-center justify-center rounded-lg"
+        >
+            <span className="text-neutral-500 text-sm font-mono">Pixel Cat Logo</span>
+        </motion.div>
+
+        {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="max-w-5xl mx-auto text-center px-4"
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          className="max-w-4xl mx-auto"
         >
-          {/* Main Title - Large white text, exact Mistral style */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-6 text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white tracking-tight"
-            style={{ color: '#ffffff', textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
-          >
-            Frontend Engineer.
+          <h1 className="text-5xl md:text-7xl font-sans font-medium text-neutral-900 tracking-tight mb-8">
+            Gaurav Jaiswal
             <br />
-            In Your Hands.
-          </motion.h1>
+            <span className="text-neutral-500">Frontend Engineer.</span>
+          </h1>
 
-          {/* Subtitle - Smaller white text */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-12 text-xl md:text-2xl font-normal"
-            style={{ color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}
-          >
-            Scalable interfaces for modern products.
-          </motion.p>
+          <p className="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">
+             Building scalable interfaces for modern products with React and Tailwind.
+          </p>
 
-          {/* Large Input Field - White background, exact Mistral style */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-8"
-          >
-            <div className="relative max-w-2xl mx-auto">
-              <input
-                type="text"
-                placeholder="Talk to le Chat"
-                className="w-full px-6 py-5 text-lg bg-white border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30 shadow-xl"
-                style={{ color: '#1a1a1a' }}
-              />
-              <button 
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-md transition-colors shadow-lg"
-                style={{ backgroundColor: '#FF7A00' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FF8A1A'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FF7A00'}
-              >
-                <ArrowRight className="h-5 w-5 text-white" />
-              </button>
-            </div>
-          </motion.div>
-
-          {/* CTA Buttons - White buttons with dark text and arrows */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-6"
-          >
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-3 bg-white rounded-lg hover:bg-white/90 transition-colors inline-flex items-center gap-2 shadow-md font-medium text-base"
-              style={{ color: '#1a1a1a' }}
-            >
-              Get a demo
-              <ArrowRight className="h-4 w-4" style={{ color: '#1a1a1a' }} />
-            </button>
-            <button 
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-3 bg-white rounded-lg hover:bg-white/90 transition-colors inline-flex items-center gap-2 shadow-md font-medium text-base"
-              style={{ color: '#1a1a1a' }}
-            >
-              Start building
-              <ArrowRight className="h-4 w-4" style={{ color: '#1a1a1a' }} />
-            </button>
-          </motion.div>
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center mt-8">
+             <button
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-[#F1F0E7] text-neutral-900 px-6 py-3 rounded-md font-medium hover:bg-[#E5E4D9] transition-colors flex items-center gap-2 group"
+             >
+                View Projects
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+             </button>
+             <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-neutral-900 px-6 py-3 font-medium hover:opacity-70 transition-opacity flex items-center gap-2 group"
+             >
+                Contact Me
+                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+             </button>
+          </div>
         </motion.div>
       </Container>
+
+      {/* The Mistral Stripes - Full Width */}
+      <div className="w-full flex flex-col mt-auto">
+        <div className="h-12 md:h-16 w-full bg-[#FFF4D6]"></div> {/* Stripe 1 */}
+        <div className="h-12 md:h-16 w-full bg-[#FFD700]"></div> {/* Stripe 2 */}
+        <div className="h-12 md:h-16 w-full bg-[#FF9900]"></div> {/* Stripe 3 */}
+        <div className="h-12 md:h-16 w-full bg-[#FF5500]"></div> {/* Stripe 4 */}
+        <div className="h-12 md:h-16 w-full bg-[#E60000]"></div> {/* Stripe 5 */}
+      </div>
+
     </section>
   );
 };

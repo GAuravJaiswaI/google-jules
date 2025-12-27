@@ -15,6 +15,7 @@ export default {
     },
     extend: {
       colors: {
+        'mistral-cream': 'var(--mistral-cream)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

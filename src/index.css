@@ -6,71 +6,85 @@
 
 @layer base {
   :root {
-    /* Mistral AI Color Palette - Light Mode */
-    /* Using warm cream and peach tones */
-    --background: 45 20% 98%; /* Light warm cream/pale yellow */
-    --foreground: 0 0% 15%; /* Dark gray/black */
-    --card: 45 25% 97%;
-    --card-foreground: 0 0% 15%;
-    --popover: 45 20% 98%;
-    --popover-foreground: 0 0% 15%;
-    --primary: 0 0% 15%; /* Dark for text */
-    --primary-foreground: 45 20% 98%;
-    --secondary: 45 30% 95%;
-    --secondary-foreground: 0 0% 15%;
-    --muted: 45 25% 96%;
+    /* Mistral AI "Stripe" Palette */
+    --mistral-cream: #FFF9E5;
+
+    /* Stripe Colors (Top to Bottom) */
+    --stripe-1: #FFF4D6; /* Pale Yellow */
+    --stripe-2: #FFD700; /* Yellow */
+    --stripe-3: #FF9900; /* Orange */
+    --stripe-4: #FF5500; /* Dark Orange */
+    --stripe-5: #E60000; /* Red */
+
+    --background: 45 60% 95%; /* Cream */
+    --foreground: 0 0% 10%; /* Dark Black/Gray */
+
+    --card: 45 60% 95%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 45 60% 95%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 10%;
+    --primary-foreground: 45 60% 95%;
+
+    --secondary: 45 30% 90%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 45 20% 90%;
     --muted-foreground: 0 0% 40%;
-    --accent: 25 95% 53%; /* Mistral orange */
-    --accent-foreground: 45 20% 98%;
+
+    --accent: 35 100% 50%; /* Orange Accent */
+    --accent-foreground: 45 60% 95%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 45 20% 90%;
-    --input: 45 25% 95%;
-    --ring: 25 95% 53%;
-    --radius: 0.5rem;
+
+    --border: 0 0% 20%; /* Darker borders for crispness */
+    --input: 45 30% 90%;
+    --ring: 35 100% 50%;
+
+    --radius: 0px; /* Mistral is sharp */
   }
 
   .dark {
-    /* Mistral AI Color Palette - Dark Mode */
-    --background: 0 0% 8%;
-    --foreground: 45 20% 98%;
-    --card: 0 0% 10%;
-    --card-foreground: 45 20% 98%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 45 20% 98%;
-    --primary: 45 20% 98%;
-    --primary-foreground: 0 0% 8%;
+    /* Dark mode might not be a priority for this specific clone,
+       but providing reasonable fallbacks */
+    --background: 0 0% 10%;
+    --foreground: 45 60% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 45 60% 95%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 45 60% 95%;
+    --primary: 45 60% 95%;
+    --primary-foreground: 0 0% 10%;
     --secondary: 0 0% 15%;
-    --secondary-foreground: 45 20% 98%;
+    --secondary-foreground: 45 60% 95%;
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
-    --accent: 25 95% 53%;
-    --accent-foreground: 45 20% 98%;
+    --accent: 35 100% 50%;
+    --accent-foreground: 45 60% 95%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 45 60% 95%;
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 25 95% 53%;
+    --ring: 35 100% 50%;
   }
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
   
   body {
     @apply text-foreground font-sans antialiased;
-    /* Light mode: Exact colors provided */
-    background: linear-gradient(to bottom, #FFF4DD 0%, #FFE4B3 100%);
-    background-attachment: fixed;
+    background-color: var(--mistral-cream);
     min-height: 100vh;
-  }
-  
-  /* Override for dark mode */
-  .dark body {
-    background: hsl(var(--background));
-    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -79,19 +93,12 @@
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .bg-mistral-cream {
+    background-color: var(--mistral-cream);
   }
-  
-  .mistral-gradient {
-    background: linear-gradient(to bottom, #FFF8E7 0%, #FFE5B4 50%, #FFB84D 100%);
-  }
-  
-  .mistral-orange {
-    background-color: #FF7A00;
-  }
-  
-  .mistral-beige {
-    background-color: #FDF8F0;
-  }
+  .bg-stripe-1 { background-color: var(--stripe-1); }
+  .bg-stripe-2 { background-color: var(--stripe-2); }
+  .bg-stripe-3 { background-color: var(--stripe-3); }
+  .bg-stripe-4 { background-color: var(--stripe-4); }
+  .bg-stripe-5 { background-color: var(--stripe-5); }
 }
