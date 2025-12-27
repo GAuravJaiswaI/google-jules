@@ -1,5 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { Slot } from "@radix-ui/react-slot"
 
 type ButtonVariant = "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
 type ButtonSize = "default" | "sm" | "lg" | "icon"
@@ -33,23 +34,14 @@ const buttonVariants = (variant: ButtonVariant, size: ButtonSize) => {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "default", size = "default", asChild = false, children, ...props }, ref) => {
-    if (asChild && React.isValidElement(children)) {
-      return React.cloneElement(children as React.ReactElement<any>, {
-        className: cn(buttonVariants(variant, size), className),
-        ref,
-        ...props,
-      })
-    }
-    
+  ({ className, variant = "default", size = "default", asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
     return (
-      <button
+      <Comp
         className={cn(buttonVariants(variant, size), className)}
         ref={ref}
         {...props}
-      >
-        {children}
-      </button>
+      />
     )
   }
 )
